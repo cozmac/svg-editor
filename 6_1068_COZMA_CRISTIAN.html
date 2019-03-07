@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Proiect SVG - Cozma Cristian</title>
+    <link rel="stylesheet" type="text/css" href="6_1068_COZMA_CRISTIAN.css"/>
+    <link rel="stylesheet" type="text/css" href="lib/lib.css"/>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+    <script src="6_1068_COZMA_CRISTIAN.js" defer></script>
+    <script src="lib/lib.js"></script>
+  </head>
+  <body style="zoom: 1;">
+    <h1>
+    SVG Editor - proiect Multimedia
+    <div>
+
+      <div class="instructiuni">
+        <p>Instructiuni de rulare:</p>
+        <p>1. Pentru a selecta o anumita figura geometrica se foloseste click dreapta</p>
+        <p>2. Din sageti se poate muta figura geometrica</p>
+        <p>3. Din tasta DELETE se poate sterge figura geometrica</p>
+        <p>4. Pentru un element selectat se poate alege orice alta culoare din combobox.</p>
+      </div>
+
+      <select id="figuri" onclick="sndF.play()">
+        <option>Rectangle</option>
+        <option>Ellipse</option>
+        <option>Line</option>
+        <option>Text</option>
+      </select>
+
+      <div class="buttons-group">
+      <input type="button" value="Blur selected item" id="BlurButton" onclick="sndH.play()">
+      <input type="button" value="Dropshadow Filter" id="Dropshadow" onclick="sndH.play()" >
+      <input type="button" value="Remove Filter" id="removeFilter" onclick="sndH.play()" >
+      <input type="button" value="+" id="bigger" onclick="sndH.play()" >
+      <input type="button" value="-" id="smaller" onclick="sndH.play()" >
+      </div>
+
+      <select id="colors">
+        <option selected disabled hidden>Colors</option>
+        <option value="F0E68C">Khaki</option>
+        <option value="6B8E23">Olive Drab</option>
+        <option value="20B2AA">Light Sea Green</option>
+        <option value="191970">Midnight Blue</option>
+        <option value="8B4513">Saddle Brown</option>
+        <option value="2F4F4F">Dark Slate Gray</option>
+        <option value="40E0D0">Turquoise</option>
+        <option value="4682B4">Steel Blue</option>
+        <option value="008080">Teal</option>
+      </select>
+
+    </div>
+<div contenteditable id="textEditable" class="textedit">
+    <svg id="editor">
+
+      <defs>
+        <filter id="blurMe">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="5"/>
+        </filter>
+
+        <filter id="dropshadow" x="0" y="0" width="200%" height="200%">
+          <feOffset result="offsetResult" in="SourceAlpha" dx="20" dy="20" />
+          <feGaussianBlur result="blurResult" in="offsetResult" stdDeviation="5" />
+          <feBlend in="SourceGraphic" in2="blurResult" mode="normal" />
+        </filter>
+
+      </defs>
+
+    <svg id="elemente">
+
+
+    </svg>
+
+
+    <rect id="rectangle" width="0" height="0" style="display:none;"></rect>
+    <ellipse id="ellipse" cx="0" cy="0" rx="0" ry="0" style="display:none;"></ellipse>
+    <line id="line" x1="0" y1="0" x2="0" y2="0" style="display:none;"></line>
+    <text id="text" x="0" y="0" style="display:none;">Please edit</text>
+
+
+</div>
+  </body>
+</html>
